@@ -6,13 +6,13 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 16:06:42 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/15 18:07:35 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/16 17:46:57 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	puthex_ptr(unsigned long num, int uppercase)
+static int	puthex_ptr(unsigned long num, char c)
 {
 	char	*base;
 	int		count;
@@ -20,8 +20,9 @@ static int	puthex_ptr(unsigned long num, int uppercase)
 	count = 0;
 	base = "0123456789abcdef";
 	if (num >= 16)
-		count += puthex_ptr(num / 16, uppercase);
-	count += ft_putchar(base[num % 16]);
+		count += puthex_ptr(num / 16, c);
+	write (1, &base[num % 16], 1);
+	count++;
 	return (count);
 }
 

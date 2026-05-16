@@ -6,7 +6,7 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:30:14 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/15 18:02:26 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/16 17:29:23 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	int	count;
+
+	count = 0;
+	write (1, &c, 1);
+	count++;
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:03:06 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/15 18:11:30 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/16 18:19:17 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@ int	ft_printf(const char *format, ...)
 
 	count = 0;
 	va_start(args, format);
+	if (!format)
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			format++;
 			count += handle_specifier(*format, args);
+			format++;
 		}
 		else
-			count += ft_putchar(*format);
+			count += write(1, &format, 1);
 		format++;
 	}
 	va_end(args);

@@ -6,7 +6,7 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:33:42 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/15 18:06:27 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/16 18:29:58 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,22 @@
 
 int	handle_specifier(char spec, va_list args)
 {
+	int count;
+
+	count = 0;
 	if (spec == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		count += ft_putchar(va_arg(args, int));
 	else if (spec == 's')
-		return (ft_putstr(va_arg(args, char *)));
+		count += ft_putstr(va_arg(args, char *));
 	else if (spec == 'd' || spec == 'i')
-		return (ft_putnbr(va_arg(args, int)));
+		count += ft_putnbr(va_arg(args, int));
 	else if (spec == 'u')
-		return (ft_putunsigned(va_arg(args, unsigned int)));
-	else if (spec == 'x')
-		return (ft_puthex(va_arg(args, unsigned int), 0));
-	else if (spec == 'X')
-		return (ft_puthex(va_arg(args, unsigned int), 1));
+		count += ft_putunsigned(va_arg(args, unsigned int));
+	else if (spec == 'x' || spec == 'X')
+		count += ft_puthex(va_arg(args, unsigned int), spec);
 	else if (spec == 'p')
-		return (ft_putptr(va_arg(args, void *)));
+		count += (ft_putptr(va_arg(args, void *)));
 	else if (spec == '%')
-		return (ft_putchar('%'));
-	return (0);
+		count += ft_putchar('%');
+	return (count);
 }

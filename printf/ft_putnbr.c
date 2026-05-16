@@ -6,7 +6,7 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 16:44:38 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/15 18:32:18 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/16 17:35:32 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 int	ft_putnbr(int n)
 {
-	if (n == -2147483648)
-	{
-		return (ft_putstr("-2147483648"));
-	}
+	int count;
+	char c;
+	long	i;
+	
+	count = 0;
+	i = n;
 	if (n < 0)
 	{
-		ft_putchar('-');
-		n = -n;
-		ft_putchar(n);
+		write(1, '-', 1);
+		i = -i;
+		count++;
 	}
 	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-		ft_putchar(n);
-	}
-	else
-	{
-		n = n + '0';
-		ft_putchar(n);
-	}
-	return (0);
+		count += ft_putnbr(i / 10);
+	c = ft_putnbr(i % 10) + '0';
+	write (1, &c, 1);
+	count++;
+	return (count);
 }
 /* int main()
 {
