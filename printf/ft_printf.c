@@ -6,34 +6,34 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:03:06 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/16 18:19:17 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/16 19:12:46 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int ft_printf(const char *format, ...)
 {
-	va_list	args;
-	int		count;
+    va_list args;
+    int     count;
 
-	count = 0;
-	va_start(args, format);
-	if (!format)
-		return (-1);
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			count += handle_specifier(*format, args);
-			format++;
-		}
-		else
-			count += write(1, &format, 1);
-		format++;
-	}
-	va_end(args);
-	return (count);
+    if (!format)
+        return (-1);
+    count = 0;
+    va_start(args, format);
+    while (*format)
+    {
+        if (*format == '%')
+        {
+            format++;
+            count += handle_specifier(*format, args);
+        }
+        else
+            count += write(1, format, 1);
+        format++;
+    }
+    va_end(args);
+    return (count);
 }
 /* int main()
 {

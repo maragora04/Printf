@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/15 15:32:19 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/16 18:57:36 by mamendes         ###   ########.fr       */
+/*   Created: 2026/05/16 18:53:07 by mamendes          #+#    #+#             */
+/*   Updated: 2026/05/16 18:54:39 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
-int	ft_putstr(char *s)
+size_t	ft_strlen(const char *s)
 {
-	int i;
-	size_t len;
+	size_t	len;
 
+	len = 0;
 	if (!s)
-		return (ft_putstr("(null)"));
-	i = 0;
-	len = ft_strlen(s);
-	while(s[i] && len > 0)
-	{
-		write(1, &s[i], 1);
-		i++;
+		return (0);
+	while (s[len])
 		len++;
-	}
-	return (i);
+	return (len);
 }
-/* int main()
-{
-	ft_putstr("ola adeus bom dia\n");
-	printf("%s\n", "ola adeus bom dia");
-} */
