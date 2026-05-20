@@ -6,7 +6,7 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 16:44:38 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/16 19:08:25 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/20 17:58:37 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,32 @@
 
 int	ft_putnbr(int n)
 {
-	int count;
-	char c;
+	int		count;
+	char	c;
 	long	i;
-	
+
 	count = 0;
 	i = n;
-	if (n < 0)
+	if (i < 0)
 	{
-		write(1, '-', 1);
+		ft_putchar('-');
 		i = -i;
 		count++;
 	}
-	if (n > 9)
+	if (i > 9)
 		count += ft_putnbr(i / 10);
-	c = ft_putnbr(i % 10) + '0';
-	write (1, &c, 1);
+	c = (i % 10) + '0';
+	ft_putchar(c);
 	count++;
 	return (count);
 }
-/* int main()
+/* #include <limits.h>
+int main()
 {
-	printf("%d\n" ,ft_putnbr(24));
-	ft_putchar('\n');
-	printf("%d\n", 24);
+	// printf("%d\n" ,ft_putnbr(24));
+	// ft_putchar('\n');
+	// printf("%d\n", 24);
+// 	ft_printf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n", INT_MAX, INT_MIN, LONG_MAX, 
+// LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf("%d\n", -12);
 } */

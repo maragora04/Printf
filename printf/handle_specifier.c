@@ -6,7 +6,7 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:33:42 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/16 18:29:58 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/20 17:59:47 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	handle_specifier(char spec, va_list args)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (spec == 'c')
