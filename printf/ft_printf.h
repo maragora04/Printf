@@ -6,7 +6,7 @@
 /*   By: mamendes <mamendes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 15:11:33 by mamendes          #+#    #+#             */
-/*   Updated: 2026/05/16 18:55:18 by mamendes         ###   ########.fr       */
+/*   Updated: 2026/05/20 18:10:01 by mamendes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 int		ft_printf(const char *format, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
-size_t	ft_strlen(const char *s);
 int		ft_puthex(unsigned int num, char c);
 int		ft_putptr(void *ptr);
 int		handle_specifier(char spec, va_list args);

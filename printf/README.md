@@ -77,14 +77,13 @@ No complex data structures are used — the design relies on a single variadic a
 
 | Function | Description |
 |--------|-------------|
-| `ft_printf` |  |
-| `ft_putchar` |  |
-| `ft_puthex` |  |
-| `ft_putnbr` | Remove object files and the library |
-| `ft_putstr` | Rebuild everything from scratch |
-| `ft_putunsigned` |  |
-| `ft_strlen` | Returns the length of a string |
-| `handle_specifier` |  |
+| `ft_printf` | Parses a format string and processes each conversion specifier, accumulating and returning the total number of bytes written |
+| `ft_putchar` | Writes a single character to stdout and returns 1 |
+| `ft_puthex` | Recursively converts and writes an unsigned int as a hexadecimal string, in lowercase or uppercase depending on the specifier passed |
+| `ft_putnbr` | Recursively converts and writes a signed integer to stdout, handling negative numbers and returning the character count |
+| `ft_putstr` | Writes a string to stdout character by character, printing (null) if the pointer is NULL, and returns the number of characters written|
+| `ft_putunsigned` | Recursively converts and writes an unsigned integer to stdout and returns the character count |
+| `handle_specifier` | Reads the conversion specifier character and dispatches to the appropriate handler function, passing the next variadic argument |
 
 ## Resources
 
